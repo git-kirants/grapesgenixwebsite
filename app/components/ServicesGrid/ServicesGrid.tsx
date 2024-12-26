@@ -41,7 +41,7 @@ const ServicesGrid: React.FC = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-white to-[#f7f4ff] py-20">
+    <section id="ServiceGrid" className="bg-gradient-to-b from-white to-[#f7f4ff] py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-10 text-center text-Black">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

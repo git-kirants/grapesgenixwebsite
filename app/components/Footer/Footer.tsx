@@ -55,16 +55,16 @@ const Footer = () => {
                         <div className="flex flex-shrink-0 items-center border-right">
                             <Image src="/assets/logo/logo.svg" alt="logo" width={214} height={66} priority />
                         </div>
-                        <h3 className="text-xs font-medium text-gunmetalgray lh-160 mt-2 mb-4 lg:mb-2">
+                        <h3 className="text-x font-medium text-gunmetalgray lh-160 mt-2 mb-4 lg:mb-2">
                             Grapesgenix Technical Solutions
                         </h3>
-                        <p className="text-xs font-medium text-gunmetalgray lh-160 mt-0 mb-2">
+                        <p className="text-x font-medium text-gunmetalgray lh-160 mt-0 mb-2">
                             Near Lourdes Church, 
                         </p>
-                        <p className="text-xs font-medium text-gunmetalgray lh-160 mt-0 mb-2">
+                        <p className="text-x font-medium text-gunmetalgray lh-160 mt-0 mb-2">
                             Next to Nirmalamatha Central School, 
                         </p>
-                        <p className="text-xs font-medium text-gunmetalgray lh-160 mt-0 mb-4 lg:mb-16">
+                        <p className="text-x font-medium text-gunmetalgray lh-160 mt-0 mb-4 lg:mb-16">
                             East Fort, Thrissur.
                         </p>
 
