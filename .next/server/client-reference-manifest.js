@@ -794,6 +794,32 @@ self.__RSC_MANIFEST={
         "async": false
       }
     },
+    "(app-client)/./app/components/Courses/CoursesGrid.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/components/Courses/CoursesGrid.tsx",
+        "name": "*",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/components/Courses/CoursesGrid.tsx",
+        "name": "",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/components/Courses/CoursesGrid.tsx",
+        "name": "default",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      }
+    },
     "(app-client)/./app/components/StatsSection/StatSection.tsx": {
       "*": {
         "id": "(sc_client)/./app/components/StatsSection/StatSection.tsx",
@@ -2790,6 +2816,30 @@ self.__RSC_MANIFEST={
     },
     "C:\\Users\\Kiran T S\\Documents\\Projects\\ElearningTemplate\\app\\components\\Banner\\Signdialog.tsx#default": {
       "id": "(app-client)/./app/components/Banner/Signdialog.tsx",
+      "name": "default",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Kiran T S\\Documents\\Projects\\ElearningTemplate\\app\\components\\Courses\\CoursesGrid.tsx": {
+      "id": "(app-client)/./app/components/Courses/CoursesGrid.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Kiran T S\\Documents\\Projects\\ElearningTemplate\\app\\components\\Courses\\CoursesGrid.tsx#": {
+      "id": "(app-client)/./app/components/Courses/CoursesGrid.tsx",
+      "name": "",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Kiran T S\\Documents\\Projects\\ElearningTemplate\\app\\components\\Courses\\CoursesGrid.tsx#default": {
+      "id": "(app-client)/./app/components/Courses/CoursesGrid.tsx",
       "name": "default",
       "chunks": [
         "app/page:static/chunks/app/page.js"

@@ -2,9 +2,9 @@ import React from 'react';
 
 const TopStrip: React.FC = () => {
   return (
-    <div className="bg-gray-800 text-black py-2 text-sm">
+    <div className="bg-black text-white py-2 text-sm">
       <div className="container mx-auto flex justify-between items-center px-4">
-        <span>📞 +91 09744112113 , 0487-2338800</span>
+        <span>📞 +91 9020209949, 7736563694  (10:00AM-5:00PM)</span>
         <span>✉️ mail@grapestechs.com</span>
       </div>
     </div>

@@ -13,7 +13,7 @@ interface NavigationItem {
 
 const navigation: NavigationItem[] = [
   { name: 'Home', href: '#/', current: true },
-  { name: 'Courses', href: '#courses', current: false },
+  { name: 'Courses', href: '#CoursesGrid', current: false },
   { name: 'Services', href: '#ServiceGrid', current: false },
   
 ];

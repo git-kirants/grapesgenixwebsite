@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';  // Import Image from next/image
 
 interface Service {
   title: string;
@@ -41,7 +42,7 @@ const ServicesGrid: React.FC = () => {
   ];
 
   return (
-    <section id="ServiceGrid" className="bg-gradient-to-b from-white to-[#f7f4ff] py-20">
+    <section id = "ServiceGrid" className="bg-gradient-to-b from-white to-[#e5ddff] py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-10 text-center text-Black">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -51,11 +52,15 @@ const ServicesGrid: React.FC = () => {
               className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               {/* Image Section */}
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  layout="fill"  // Fills the container
+                  objectFit="cover"  // Ensures the image covers the area without distortion
+                  className="rounded-t-lg"
+                />
+              </div>
               {/* Text Content */}
               <div className="p-6 text-center">
                 <h3 className="text-2xl font-bold mb-2">{service.title}</h3>

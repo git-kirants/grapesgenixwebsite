@@ -4,7 +4,7 @@ const AboutUs: React.FC = () => {
     return (
         <section id="about-section" className="bg-white py-16">
             <div className="mx-auto max-w-7xl px-6">
-                <div className="text-center lg:text-left">
+                <div className="text-center lg:text-center">
                     <h2 className="text-3xl sm:text-4xl font-semibold text-midnightblue">
                         About Us
                     </h2>

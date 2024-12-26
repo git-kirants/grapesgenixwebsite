@@ -10,7 +10,8 @@ const Banner = () => {
                     <div className='col-span-6 flex flex-col justify-center items-center lg:items-start'>
                         {/* Welcome Text */}
                         <h1 className='text-midnightblue text-4xl sm:text-5xl font-semibold text-center lg:text-start lh-120 pt-2 lg:pt-0'>
-    Welcome to <span className='text-[#7E1F86]'>GrapesGenix</span> Technical Solutions Pvt Ltd
+    Welcome to <span className="bg-gradient-to-r from-[#B08BFF] to-[#5A2D8C] text-transparent bg-clip-text">  GrapesGenix 
+    </span> Technical Solutions Pvt Ltd
 </h1>
 
 
