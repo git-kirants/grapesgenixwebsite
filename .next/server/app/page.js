@@ -368,12 +368,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 6997:
+/***/ 4156:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5725));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1047));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 408, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 53, 23))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8115));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1975));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4285))
+
+/***/ }),
+
+/***/ 4298:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 408, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 53, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5725))
 
 /***/ }),
 
@@ -385,17 +396,6 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3751, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 4765, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 5192, 23))
-
-/***/ }),
-
-/***/ 9859:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 408, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4285));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1047));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5074));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1975))
 
 /***/ }),
 
@@ -589,7 +589,7 @@ const Register = ()=>{
 
 /***/ }),
 
-/***/ 5074:
+/***/ 8115:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1324,7 +1324,7 @@ const StatsCard = ({ icon: Icon , label , value , delay =0  })=>{
         delay
     ]);
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-        className: "bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300",
+        className: "bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 relative z-0",
         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
             className: "flex items-center gap-4",
             children: [
@@ -1337,11 +1337,9 @@ const StatsCard = ({ icon: Icon , label , value , delay =0  })=>{
                                 backgroundColor: "rgba(189, 120, 249, 0.4)"
                             }
                         }),
-                        " ",
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Icon, {
-                            className: "w-8 h-8 text-gray-600 relative z-10"
-                        }),
-                        " "
+                            className: "w-8 h-8 text-gray-600 relative"
+                        })
                     ]
                 }),
                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -1384,7 +1382,7 @@ const StatsSection = ()=>{
         }
     ];
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("section", {
-        className: "py-16 px-4",
+        className: "py-16 px-4 relative z-0",
         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
             className: "max-w-6xl mx-auto",
             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {

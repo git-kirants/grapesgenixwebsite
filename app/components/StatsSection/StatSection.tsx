@@ -40,13 +40,12 @@ const StatsCard: React.FC<StatsCardProps> = ({ icon: Icon, label, value, delay =
   }, [value, delay]);
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-    <div className="flex items-center gap-4">
-      <div className="relative p-3 bg-gray-100 rounded-lg">
-        {/* Icon container with relative position to handle overlay */}
-        <div className="absolute rounded-xl inset-0" style={{ backgroundColor: 'rgba(189, 120, 249, 0.4)' }}></div> {/* Light purple overlay with 50% transparency */}
-        <Icon className="w-8 h-8 text-gray-600 relative z-10" /> {/* Icon with higher z-index */}
-      </div>
+    <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 relative z-0">
+      <div className="flex items-center gap-4">
+        <div className="relative p-3 bg-gray-100 rounded-lg">
+          <div className="absolute rounded-xl inset-0" style={{ backgroundColor: 'rgba(189, 120, 249, 0.4)' }}></div>
+          <Icon className="w-8 h-8 text-gray-600 relative" />
+        </div>
         <div>
           <div className="text-sm text-gray-500 font-medium mb-1">{label}</div>
           <div className="text-2xl font-bold text-gray-900">
@@ -73,7 +72,7 @@ const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-4 relative z-0">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
