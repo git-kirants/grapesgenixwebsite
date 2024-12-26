@@ -17,10 +17,11 @@ const Banner = () => {
 
 
                         {/* Login and Register Buttons */}
-                        <div className="flex justify-center lg:justify-start gap-4 mt-4">
-                            <Signdialog /> {/* Login Button */}
-                            <Registerdialog /> {/* Register Button */}
-                        </div>
+                        <div className="flex justify-center lg:justify-start gap-x-1 mt-4">
+    <Signdialog /> {/* Login Button */}
+    <Registerdialog /> {/* Register Button */}
+</div>
+
                     </div>
 
                     {/* Banner Image */}

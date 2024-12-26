@@ -21172,7 +21172,7 @@ Object.defineProperty(exports, "addBasePath", ({
     }
 }));
 const _addpathprefix = __webpack_require__(1751);
-const _normalizetrailingslash = __webpack_require__(6694);
+const _normalizetrailingslash = __webpack_require__(8115);
 const basePath =  false || "";
 function addBasePath(path, required) {
     if (false) {}
@@ -21203,7 +21203,7 @@ Object.defineProperty(exports, "addLocale", ({
         return addLocale;
     }
 }));
-const _normalizetrailingslash = __webpack_require__(6694);
+const _normalizetrailingslash = __webpack_require__(8115);
 const addLocale = function(path) {
     for(var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++){
         args[_key - 1] = arguments[_key];
@@ -26317,7 +26317,7 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 6694:
+/***/ 8115:
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";

@@ -368,17 +368,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 6260:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4285));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 408, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1047));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8115));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1975))
-
-/***/ }),
-
 /***/ 6997:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -388,14 +377,25 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_
 
 /***/ }),
 
-/***/ 4242:
+/***/ 8237:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 9222, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 8301, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3751, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 4765, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 5192, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3751, 23))
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 5192, 23))
+
+/***/ }),
+
+/***/ 9859:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 408, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4285));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1047));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5074));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1975))
 
 /***/ }),
 
@@ -431,7 +431,7 @@ const Register = ()=>{
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                     className: "hidden lg:block",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                        className: "text-Blueviolet text-lg font-medium ml-9 py-5 px-16 transition duration-150 ease-in-out rounded-full bg-semiblueviolet hover:text-white hover:bg-Blueviolet",
+                        className: "text-white text-lg font-medium mr -4 py-5 px-16 transition duration-150 ease-in-out rounded-full bg-[#8A2BE2] hover:bg-white hover:text-[#8A2BE2] hover:border hover:border-[#8A2BE2]",
                         onClick: openModal,
                         children: "Sign up"
                     })
@@ -477,18 +477,11 @@ const Register = ()=>{
                                             children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                                 className: "w-full max-w-md space-y-8",
                                                 children: [
-                                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                                                className: "mx-auto h-12 w-auto",
-                                                                src: "/assets/logo/logo.svg",
-                                                                alt: "Your Company"
-                                                            }),
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
-                                                                className: "mt-6 text-center text-3xl font-bold tracking-tight text-gray-900",
-                                                                children: "Register your account"
-                                                            })
-                                                        ]
+                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                                                            className: "mt-6 text-center text-3xl font-bold tracking-tight text-gray-900",
+                                                            children: "Register your account"
+                                                        })
                                                     }),
                                                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
                                                         className: "mt-8 space-y-6",
@@ -596,7 +589,7 @@ const Register = ()=>{
 
 /***/ }),
 
-/***/ 8115:
+/***/ 5074:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -631,7 +624,7 @@ const Signin = ()=>{
                     className: "hidden lg:block",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
                         type: "button",
-                        className: "text-lg text-Blueviolet font-medium hover:text-indigo-700 transition duration-300 ease-in-out rounded-full py-2 px-4",
+                        className: "mr-2 text-lg text-[#8A2BE2] font-medium hover:bg-[#8A2BE2] hover:text-white transition duration-300 ease-in-out rounded-full py-5 px-16 border border-[#8A2BE2] bg-white",
                         onClick: openModal,
                         children: "Log In"
                     })
@@ -677,18 +670,11 @@ const Signin = ()=>{
                                             children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                                 className: "w-full max-w-md space-y-8",
                                                 children: [
-                                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                                                className: "mx-auto h-12 w-auto",
-                                                                src: "/assets/logo/logo.svg",
-                                                                alt: "Your Company"
-                                                            }),
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
-                                                                className: "mt-6 text-center text-3xl font-bold tracking-tight text-gray-900",
-                                                                children: "Sign in to your account"
-                                                            })
-                                                        ]
+                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                                                            className: "mt-6 text-center text-3xl font-bold tracking-tight text-gray-900",
+                                                            children: "Sign in to your account"
+                                                        })
                                                     }),
                                                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
                                                         className: "mt-8 space-y-6",
@@ -1658,14 +1644,16 @@ var react_shared_subset = __webpack_require__(4212);
 
 const TopStrip = ()=>{
     return /*#__PURE__*/ jsx_runtime_.jsx("div", {
-        className: "bg-black text-white py-2 text-sm",
+        className: "bg-black text-white py-2 text-xs sm:text-sm",
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-            className: "container mx-auto flex justify-between items-center px-4",
+            className: "container mx-auto flex flex-wrap justify-between items-center px-4 gap-y-2",
             children: [
                 /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                    children: "\uD83D\uDCDE +91 9020209949, 7736563694  (10:00AM-5:00PM)"
+                    className: "block w-full sm:w-auto text-center sm:text-left",
+                    children: "\uD83D\uDCDE +91 9020209949, 7736563694 (10:00AM-5:00PM)"
                 }),
                 /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                    className: "block w-full sm:w-auto text-center sm:text-right",
                     children: "✉️ mail@grapestechs.com"
                 })
             ]
@@ -1761,7 +1749,7 @@ const Banner = ()=>{
                                 ]
                             }),
                             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                className: "flex justify-center lg:justify-start gap-4 mt-4",
+                                className: "flex justify-center lg:justify-start gap-x-1 mt-4",
                                 children: [
                                     /*#__PURE__*/ jsx_runtime_.jsx((Signdialog_default()), {}),
                                     " ",

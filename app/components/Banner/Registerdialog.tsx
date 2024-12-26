@@ -16,12 +16,13 @@ const Register = () => {
         <>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:pr-0">
                 <div className='hidden lg:block'>
-                    <button
-                        className="text-Blueviolet text-lg font-medium ml-9 py-5 px-16 transition duration-150 ease-in-out rounded-full bg-semiblueviolet hover:text-white hover:bg-Blueviolet"
-                        onClick={openModal}
-                    >
-                        Sign up
-                    </button>
+                <button
+    className="text-white text-lg font-medium mr -4 py-5 px-16 transition duration-150 ease-in-out rounded-full bg-[#8A2BE2] hover:bg-white hover:text-[#8A2BE2] hover:border hover:border-[#8A2BE2]"
+    onClick={openModal}
+>
+    Sign up
+</button>
+
                 </div>
             </div>
 
@@ -58,11 +59,7 @@ const Register = () => {
                                     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                                         <div className="w-full max-w-md space-y-8">
                                             <div>
-                                                <img
-                                                    className="mx-auto h-12 w-auto"
-                                                    src="/assets/logo/logo.svg"
-                                                    alt="Your Company"
-                                                />
+                                                
                                                 <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
                                                     Register your account
                                                 </h2>
