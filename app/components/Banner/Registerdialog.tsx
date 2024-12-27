@@ -1,34 +1,25 @@
 'use client';
 
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import { LockClosedIcon } from '@heroicons/react/20/solid';
 import { CheckCircle, Menu } from 'lucide-react';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
-import type { Auth } from 'firebase/auth';
-import type { Firestore } from 'firebase/firestore';
+import { auth, db } from '@/firebase/clientApp'; // Import initialized Firebase services
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from 'firebase/auth';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { UserPlus } from 'lucide-react';
 
 const Register = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [auth, setAuth] = useState<Auth | null>(null);
-  const [db, setDb] = useState<Firestore | null>(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    const initializeFirebase = async () => {
-      const { firebaseApp } = await import('@/firebase/clientApp');
-      setAuth(getAuth(firebaseApp));
-      setDb(getFirestore(firebaseApp));
-    };
-
-    initializeFirebase();
-  }, []);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -97,7 +88,7 @@ const Register = () => {
     }
   };
 
-  return (
+ return (
     <>
        <div className="flex flex-col space-y-2 items-start">
             {/* Secondary Button - Sign Up */}

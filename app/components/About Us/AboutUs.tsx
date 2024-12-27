@@ -1,12 +1,12 @@
 import React from 'react';
-
 const AboutUs: React.FC = () => {
     return (
         <section id="about-section" className="bg-white py-16">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="text-center lg:text-center">
+                    
                     <h2 className="text-3xl sm:text-4xl font-semibold text-midnightblue">
-                        About Us
+                    About Us
                     </h2>
                     <p className="mt-4 text-lg text-gray-600 leading-relaxed">
                         GrapesGenix is an initiative with objectives of offering advanced technological solutions in the fields of Information Technology (IT) and Information Technology Enabled Services (ITES). 
