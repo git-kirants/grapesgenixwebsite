@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Users, FolderGit2, Clock, Brain, LucideIcon } from 'lucide-react';
 
 interface StatsCardProps {
@@ -8,13 +8,17 @@ interface StatsCardProps {
   label: string;
   value: string;
   delay?: number;
+  isVisible: boolean;
 }
 
-const StatsCard: React.FC<StatsCardProps> = ({ icon: Icon, label, value, delay = 0 }) => {
+const StatsCard: React.FC<StatsCardProps> = ({ icon: Icon, label, value, delay = 0, isVisible }) => {
   const [count, setCount] = useState(0);
   const duration = 2000;
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
+    if (!isVisible || hasAnimated.current) return;
+    
     const startTime = Date.now();
     const endValue = parseInt(value.replace(/,/g, ''));
     
@@ -33,11 +37,12 @@ const StatsCard: React.FC<StatsCardProps> = ({ icon: Icon, label, value, delay =
         requestAnimationFrame(updateCount);
       } else {
         setCount(endValue);
+        hasAnimated.current = true;
       }
     };
 
     requestAnimationFrame(updateCount);
-  }, [value, delay]);
+  }, [value, delay, isVisible]);
 
   return (
     <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 relative z-0">
@@ -64,6 +69,31 @@ interface StatItem {
 }
 
 const StatsSection: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.2, // Triggers when 20% of the section is visible
+        root: null,     // Use viewport as root
+        rootMargin: '0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const stats: StatItem[] = [
     { icon: Users, label: 'Happy Clients', value: '232' },
     { icon: FolderGit2, label: 'Projects', value: '521' },
@@ -72,7 +102,7 @@ const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4 relative z-0">
+    <section ref={sectionRef} className="py-16 px-4 relative z-0">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
@@ -82,6 +112,7 @@ const StatsSection: React.FC = () => {
               label={stat.label}
               value={stat.value}
               delay={index * 200}
+              isVisible={isVisible}
             />
           ))}
         </div>

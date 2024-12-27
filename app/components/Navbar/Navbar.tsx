@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import Drawer from './Drawer';
 import Drawerdata from './Drawerdata';
-
+import Image from 'next/image';
 interface NavigationItem {
   name: string;
   href: string;

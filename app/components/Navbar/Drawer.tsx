@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { X } from "lucide-react";
-
+import Image from "next/image";
 interface DrawerProps {
     children: ReactNode;
     isOpen: boolean;
