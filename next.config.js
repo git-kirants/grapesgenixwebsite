@@ -7,6 +7,10 @@ const nextConfig = {
       };
       return config;
     },
-  }
+    images: {
+      domains: ['lh3.googleusercontent.com'], // Add the domain here
+    },
+  };
   
-  module.exports = nextConfig
+  module.exports = nextConfig;
+  

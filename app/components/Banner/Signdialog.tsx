@@ -42,19 +42,21 @@ const Signin = () => {
 
     const handleGoogleSignIn = async () => {
         if (!auth || !db) return;
-        
+    
         try {
             const { signInWithPopup, GoogleAuthProvider } = await import("firebase/auth");
-            const { doc, setDoc, getDoc } = await import("firebase/firestore");
-            
+            const { doc, setDoc, getDoc, collection } = await import("firebase/firestore");
+    
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
-
-            const userRef = doc(db, "users", user.email || user.uid);
+    
+            // Use `uid` as the document ID
+            const userRef = doc(collection(db, "users"), user.uid); 
             const userSnap = await getDoc(userRef);
-
+    
             if (!userSnap.exists()) {
+                // Create a new document for the user
                 await setDoc(userRef, {
                     uid: user.uid,
                     email: user.email,
@@ -63,13 +65,22 @@ const Signin = () => {
                     createdAt: new Date().toISOString(),
                 });
             }
-
-            closeModal();
+    
+            // Log a success message
+            console.log("Google sign-in successful:", {
+                uid: user.uid,
+                email: user.email,
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+            });
+    
+            closeModal(); // Handle UI changes for successful login
         } catch (error) {
             console.error("Error signing in with Google:", error);
             setError("Failed to sign in with Google. Please try again.");
         }
     };
+    
 
     const handleEmailSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
