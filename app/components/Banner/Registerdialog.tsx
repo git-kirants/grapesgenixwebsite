@@ -3,11 +3,12 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState, useEffect } from 'react';
 import { LockClosedIcon } from '@heroicons/react/20/solid';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Menu } from 'lucide-react';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import type { Auth } from 'firebase/auth';
 import type { Firestore } from 'firebase/firestore';
+import { UserPlus } from 'lucide-react';
 
 const Register = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,7 @@ const Register = () => {
 
   useEffect(() => {
     const initializeFirebase = async () => {
-      const { firebaseApp } = await import('@/firebase/clientApp'); // Make sure this file exists and properly initializes Firebase
+      const { firebaseApp } = await import('@/firebase/clientApp');
       setAuth(getAuth(firebaseApp));
       setDb(getFirestore(firebaseApp));
     };
@@ -47,11 +48,9 @@ const Register = () => {
     setError('');
 
     try {
-      // Create user in Firebase Auth
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Add user to Firestore
       await setDoc(doc(db, 'users', user.uid), {
         uid: user.uid,
         email: user.email,
@@ -59,8 +58,6 @@ const Register = () => {
       });
 
       setShowSuccess(true);
-
-      // Close modal after showing success animation
       setTimeout(() => {
         closeModal();
       }, 2000);
@@ -80,11 +77,9 @@ const Register = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      // Check if user already exists in Firestore
       const userRef = doc(db, 'users', user.uid);
       const userSnap = await getDoc(userRef);
 
-      // If user doesn't exist, add them to the users collection
       if (!userSnap.exists()) {
         await setDoc(userRef, {
           uid: user.uid,
@@ -104,19 +99,27 @@ const Register = () => {
 
   return (
     <>
-      <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:pr-0">
-        <div className="hidden lg:block">
-          <button
-            className="text-white text-lg font-medium mr-4 py-5 px-16 transition duration-150 ease-in-out rounded-full bg-[#8A2BE2] hover:bg-white hover:text-[#8A2BE2] hover:border hover:border-[#8A2BE2]"
-            onClick={openModal}
-          >
-            Sign up
-          </button>
+       <div className="flex flex-col space-y-2 items-start">
+            {/* Secondary Button - Sign Up */}
+            <button
+                onClick={openModal}
+                className="w-full sm:w-auto text-base font-medium px-6 py-2.5 md:px-8 md:py-3 rounded-full bg-[#8A2BE2] text-white hover:bg-[#7B27CC] active:scale-[0.98] transition-all duration-200 ease-in-out shadow-sm hover:shadow-md"
+            >
+                <span className="flex items-center justify-center gap-2">
+                    <UserPlus className="w-4 h-4" />
+                    <span>Sign Up</span>
+                </span>
+            </button>
+
+            <Transition appear show={isOpen} as={Fragment}>
+                <Dialog as="div" className="relative z-[60]" onClose={closeModal}>
+                    {/* ... (rest of the modal code remains the same) ... */}
+                </Dialog>
+            </Transition>
         </div>
-      </div>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-[60]" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -130,7 +133,7 @@ const Register = () => {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex min-h-full items-center justify-center p-2 sm:p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -140,17 +143,17 @@ const Register = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all min-h-[500px]">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-4 sm:p-6 text-left align-middle shadow-xl transition-all">
                   {showSuccess ? (
-                    <div className="flex flex-col items-center justify-center h-full space-y-4">
-                      <CheckCircle className="w-16 h-16 text-green-500 animate-bounce" />
-                      <p className="text-xl font-semibold text-gray-900">Registration Successful!</p>
+                    <div className="flex flex-col items-center justify-center h-64 space-y-4">
+                      <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-500 animate-bounce" />
+                      <p className="text-lg sm:text-xl font-semibold text-gray-900">Registration Successful!</p>
                     </div>
                   ) : (
-                    <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-                      <div className="w-full max-w-md space-y-8">
+                    <div className="flex min-h-full items-center justify-center py-6 sm:py-12 px-2 sm:px-4">
+                      <div className="w-full max-w-md space-y-6">
                         <div>
-                          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+                          <h2 className="text-center text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">
                             Register your account
                           </h2>
                         </div>
@@ -159,8 +162,8 @@ const Register = () => {
                             {error}
                           </div>
                         )}
-                        <form className="mt-8 space-y-6" onSubmit={handleEmailRegistration}>
-                          <div className="-space-y-px rounded-md shadow-sm">
+                        <form className="mt-6 space-y-4 sm:space-y-6" onSubmit={handleEmailRegistration}>
+                          <div className="space-y-2 sm:-space-y-px rounded-md shadow-sm">
                             <div>
                               <label htmlFor="email-address" className="sr-only">
                                 Email address
@@ -171,7 +174,7 @@ const Register = () => {
                                 type="email"
                                 autoComplete="email"
                                 required
-                                className="relative block w-full appearance-none rounded-t-md border border-grey500 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                className="relative block w-full rounded-md sm:rounded-t-md sm:rounded-b-none border border-grey500 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 text-sm sm:text-base"
                                 placeholder="Email address"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -187,7 +190,7 @@ const Register = () => {
                                 type="password"
                                 autoComplete="new-password"
                                 required
-                                className="relative block w-full appearance-none rounded-b-md border border-grey500 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                className="relative block w-full rounded-md sm:rounded-b-md sm:rounded-t-none border border-grey500 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 text-sm sm:text-base"
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -199,7 +202,7 @@ const Register = () => {
                             <button
                               type="submit"
                               disabled={isLoading}
-                              className="group relative flex w-full justify-center rounded-full border border-transparent bg-Blueviolet py-2 px-4 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                              className="group relative flex w-full justify-center rounded-full border border-transparent bg-Blueviolet py-2 px-4 text-sm sm:text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                 <LockClosedIcon className="h-4 w-4 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
@@ -209,7 +212,7 @@ const Register = () => {
                           </div>
                         </form>
 
-                        <div className="mt-6">
+                        <div className="mt-4 sm:mt-6">
                           <div className="relative">
                             <div className="absolute inset-0 flex items-center">
                               <div className="w-full border-t border-gray-300" />
@@ -219,13 +222,13 @@ const Register = () => {
                             </div>
                           </div>
 
-                          <div className="mt-6">
+                          <div className="mt-4 sm:mt-6">
                             <button
                               type="button"
                               onClick={handleGoogleSignUp}
-                              className="w-full flex items-center justify-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out"
+                              className="w-full flex items-center justify-center gap-3 rounded-full bg-white px-4 py-2 text-sm sm:text-base font-medium text-gray-700 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out"
                             >
-                              <svg className="h-5 w-5" viewBox="0 0 24 24">
+                              <svg className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
                                 <path
                                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                                   fill="#4285F4"
