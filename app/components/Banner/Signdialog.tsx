@@ -7,7 +7,7 @@ import type { Auth } from 'firebase/auth'
 import type { Firestore } from 'firebase/firestore'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { UserPlusIcon } from '@heroicons/react/24/outline'; // Outline version
-
+import Image from 'next/image';
 const Signin = () => {
     let [isOpen, setIsOpen] = useState(false)
     const [auth, setAuth] = useState<Auth | null>(null)
@@ -224,17 +224,32 @@ const Signin = () => {
                                                 </div>
 
                                                 <div className="mt-4 sm:mt-6">
-                                                    <button
-                                                        type="button"
-                                                        onClick={handleGoogleSignIn}
-                                                        className="w-full flex items-center justify-center gap-2 sm:gap-3 rounded-full bg-white px-4 py-2 text-xs sm:text-sm font-medium text-gray-700 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out"
-                                                    >
-                                                        <svg className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                                                        </svg>
-                                                        Sign in with Google
-                                                    </button>
-                                                </div>
+                            <button
+                              type="button"
+                              onClick={handleGoogleSignIn}
+                              className="w-full flex items-center justify-center gap-3 rounded-full bg-white px-4 py-2 text-sm sm:text-base font-medium text-gray-700 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out"
+                            >
+                              <svg className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
+                                <path
+                                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                  fill="#4285F4"
+                                />
+                                <path
+                                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                  fill="#34A853"
+                                />
+                                <path
+                                  d="M5.84 13.95c-.29-.84-.44-1.75-.44-2.66s.15-1.82.44-2.66V6.41H2.18c-.29.84-.44 1.75-.44 2.66s.15 1.82.44 2.66l3.66-2.84z"
+                                  fill="#FBBC05"
+                                />
+                                <path
+                                  d="M12 3.61c1.5 0 2.8.51 3.83 1.36l2.85-2.85C17.26 1.15 14.8 0 12 0 7.7 0 3.99 2.47 2.18 5.47l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                  fill="#EA4335"
+                                />
+                              </svg>
+                              Sign in with Google
+                            </button>
+                          </div>
                                             </div>
                                         </div>
                                     </div>
