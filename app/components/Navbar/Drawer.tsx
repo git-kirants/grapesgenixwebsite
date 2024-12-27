@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
+
 interface DrawerProps {
     children: ReactNode;
     isOpen: boolean;
@@ -16,15 +17,14 @@ interface DrawerItemProps {
     icon?: ReactNode;
 }
 
-// New DrawerItem component for consistent item styling
 export const DrawerItem = ({ children, onClick, icon }: DrawerItemProps) => (
     <button
         onClick={onClick}
-        className="w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 active:bg-gray-100 
-                 rounded-lg transition-colors duration-150 text-left"
+        className="w-full flex items-center space-x-4 px-5 py-4 hover:bg-gray-100 active:bg-gray-200 
+                 rounded-lg transition-colors duration-200 text-left"
     >
         {icon && <span className="text-gray-500">{icon}</span>}
-        <span className="text-gray-700 font-medium">{children}</span>
+        <span className="text-gray-800 font-medium">{children}</span>
     </button>
 );
 
@@ -38,18 +38,11 @@ const Drawer = ({
 }: DrawerProps) => {
     const [mounted, setMounted] = useState(false);
 
-    // Debugging: Log drawer open/close state
     useEffect(() => {
-        console.log('Drawer isOpen:', isOpen);
-    }, [isOpen]);
-
-    // Prevent body scroll when drawer is open
-    useEffect(() => {
-        console.log('Mounted:', mounted);
         if (isOpen) {
-            document.body.style.overflow = 'hidden';  // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'unset';  // Restore body scrolling
+            document.body.style.overflow = 'unset';
         }
         return () => {
             document.body.style.overflow = 'unset';
@@ -57,16 +50,10 @@ const Drawer = ({
     }, [isOpen]);
 
     const handleClose = () => {
-        console.log('Closing drawer');
         setIsOpen(false);
     };
 
-    // Handle click events inside the drawer
     const handleContentClick = (e: React.MouseEvent) => {
-        // Debugging: Log the clicked element
-        console.log('Content clicked:', e.target);
-
-        // Check if the clicked element is a button or link
         const isInteractive = (e.target as HTMLElement).closest('button, a');
         if (isInteractive) {
             handleClose();
@@ -74,20 +61,19 @@ const Drawer = ({
         }
     };
 
-    // Use effect to ensure mounted state is set after the first render
     useEffect(() => {
         setMounted(true);
     }, []);
 
     if (!mounted) {
-        return null; // Prevent server-side rendering issues
+        return null;
     }
 
     return (
         <>
             {/* Backdrop */}
             <div
-                className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-60 transition-opacity duration-300
+                className={`fixed inset-0 bg-black/60 backdrop-blur-md z-40 transition-opacity duration-300
                     ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
                 onClick={handleClose}
                 aria-hidden="true"
@@ -95,34 +81,36 @@ const Drawer = ({
             
             {/* Drawer */}
             <div
-                className={`fixed inset-y-0 ${position}-0 w-full sm:w-96 bg-white z-70
-                    transform transition-transform duration-300 ease-out shadow-2xl overflow-hidden
+                className={`fixed inset-y-0 ${position}-0 w-full sm:w-96 bg-white z-50
+                    transform transition-transform duration-300 ease-in-out shadow-xl rounded-${position === "left" ? "r" : "l"}-3xl
                     ${isOpen ? "translate-x-0" : position === "left" ? "-translate-x-full" : "translate-x-full"}`}
                 role="dialog"
                 aria-modal="true"
             >
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-                    <div className="flex items-center space-x-3">
-                        <img
-                            className="h-8 w-auto"
+                <div className="flex items-center justify-between px-6 py-5 bg-gray-50 border-b border-gray-200">
+                    <div className="flex items-center space-x-4">
+                        <Image
+                            className="h-10 w-auto"
                             src="/assets/logo/logo.svg"
                             alt="Logo"
+                            width={40}
+                            height={40}
                         />
-                        <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+                        <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
                     </div>
                     <button
                         onClick={handleClose}
                         className="p-2 rounded-full hover:bg-gray-100 active:bg-gray-200 
-                                 transition-colors duration-200 touch-manipulation"
+                                 transition-colors duration-200"
                         aria-label="Close drawer"
                     >
-                        <X className="h-5 w-5 text-gray-500" />
+                        <X className="h-6 w-6 text-gray-500" />
                     </button>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 overflow-y-auto px-6 py-4 touch-pan-y" onClick={handleContentClick}>
+                <div className="flex-1 overflow-y-auto px-6 py-4" onClick={handleContentClick}>
                     {children}
                 </div>
             </div>

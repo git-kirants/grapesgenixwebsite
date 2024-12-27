@@ -5,16 +5,19 @@ import { Bars3Icon } from '@heroicons/react/24/outline';
 import Drawer from './Drawer';
 import Drawerdata from './Drawerdata';
 import Image from 'next/image';
+import { Home, Book, Briefcase, LucideIcon  } from 'lucide-react';
+
 interface NavigationItem {
   name: string;
   href: string;
   current: boolean;
+  icon : LucideIcon;
 }
 
 const navigation: NavigationItem[] = [
-  { name: 'Home', href: '#/', current: true },
-  { name: 'Courses', href: '#CoursesGrid', current: false },
-  { name: 'Services', href: '#ServiceGrid', current: false },
+  { name: 'Home', href: '#/', current: true , icon: Home},
+  { name: 'Courses', href: '#CoursesGrid', current: false , icon: Book},
+  { name: 'Services', href: '#ServiceGrid', current: false, icon: Briefcase },
   
 ];
 
@@ -70,29 +73,33 @@ const Navbar = () => {
               </div>
 
               {/* LINKS */}
-              <div className="hidden lg:block ml-auto">
-                <div className="flex space-x-4 items-center">
-                  {navigation.map((item) => (
-                    <CustomLink
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => handleLinkClick(item.href)}
-                    >
-                      <span
-                        className={classNames(
-                          item.href === currentLink
-                            ? 'underline-links'
-                            : 'text-slategray',
-                          'px-3 py-4 text-lg font-normal opacity-75 hover:opacity-100'
-                        )}
-                        aria-current={item.href ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </span>
-                    </CustomLink>
-                  ))}
-                </div>
-              </div>
+              {/* LINKS */}
+<div className="hidden lg:block ml-auto">
+  <div className="flex space-x-4 items-center">
+    {navigation.map((item) => (
+      <CustomLink
+        key={item.name}
+        href={item.href}
+        onClick={() => handleLinkClick(item.href)}
+      >
+        <span
+          className={classNames(
+            item.href === currentLink
+              ? 'underline-links'
+              : 'text-slategray',
+            'flex items-center px-3 py-4 text-lg font-normal opacity-75 hover:opacity-100'
+          )}
+          aria-current={item.href ? 'page' : undefined}
+        >
+          {/* Render Icon */}
+          <item.icon size={20} className="mr-2" />
+          {item.name}
+        </span>
+      </CustomLink>
+    ))}
+  </div>
+</div>
+
             </div>
 
             {/* DRAWER FOR MOBILE VIEW */}
