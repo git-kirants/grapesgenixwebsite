@@ -26,7 +26,7 @@ const Banner = () => {
 
                     {/* Banner Image */}
                     <div className='col-span-6 flex justify-center'>
-                        <Image src="/assets/banner/Girl.png" alt="nothing" width={1000} height={805} />
+                        <img src="/assets/banner/Girl.svg" alt="nothing" width={1000} height={805} />
                     </div>
                 </div>
             </div>
