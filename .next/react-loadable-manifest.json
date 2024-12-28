@@ -1,14 +1,14 @@
 {
   "app/components/Banner/Signdialog.tsx -> @/firebase/clientApp": {
-    "id": "app/components/Banner/Signdialog.tsx -> @/firebase/clientApp",
+    "id": 5433,
     "files": []
   },
   "app/components/Banner/Signdialog.tsx -> firebase/auth": {
-    "id": "app/components/Banner/Signdialog.tsx -> firebase/auth",
+    "id": 399,
     "files": []
   },
   "app/components/Banner/Signdialog.tsx -> firebase/firestore": {
-    "id": "app/components/Banner/Signdialog.tsx -> firebase/firestore",
+    "id": 7058,
     "files": []
   }
 }
