@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Signdialog from '../Banner/Signdialog'; // Correct import path
 import Registerdialog from '../Banner/Registerdialog';
-import { Home, Book, Briefcase, LucideIcon  } from 'lucide-react';
+import { Home, Book, Briefcase,Phone, LucideIcon  } from 'lucide-react';
 interface NavigationItem {
   name: string;
   href: string;
@@ -12,11 +12,11 @@ interface NavigationItem {
 
 
 const navigation: NavigationItem[] = [
-  { name: 'Home', href: '#/', current: true , icon: Home},
-  { name: 'Courses', href: '#CoursesGrid', current: false , icon: Book},
-  { name: 'Services', href: '#ServiceGrid', current: false, icon: Briefcase },
-  
-];
+    { name: 'Home', href: '#/', current: true, icon: Home },
+    { name: 'Courses', href: '#CoursesGrid', current: false, icon: Book },
+    { name: 'Services', href: '#ServiceGrid', current: false, icon: Briefcase },
+    { name: 'Contact', href: '#ContactUs', current: false, icon: Phone },
+  ];
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
