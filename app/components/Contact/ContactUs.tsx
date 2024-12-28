@@ -22,7 +22,7 @@ const ContactUs = () => {
   }, []);
 
   return (
-    <section id = "ContactUs" className="py-16 bg-purple-50">
+    <section id = "ContactUs" className="py-16 bg-[#f7f4ff]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-purple-700">Contact Us</h2>
