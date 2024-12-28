@@ -6,6 +6,7 @@ import AboutUs from './components/About Us/AboutUs';
 import StatsSection from './components/StatsSection/StatSection';
 import ServicesGrid from './components/ServicesGrid/ServicesGrid';
 import CoursesGrid from './components/Courses/CoursesGrid';
+import ContactUs from './components/Contact/ContactUs';
 
 // Page component for the entire content
 const Page = () => {
@@ -32,6 +33,7 @@ const Page = () => {
       <StatsSection />
       <ServicesGrid />
       <CoursesGrid />
+      <ContactUs />
     </main>
   );
 };

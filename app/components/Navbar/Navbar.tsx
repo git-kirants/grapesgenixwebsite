@@ -5,7 +5,7 @@ import { Bars3Icon } from '@heroicons/react/24/outline';
 import Drawer from './Drawer';
 import Drawerdata from './Drawerdata';
 import Image from 'next/image';
-import { Home, Book, Briefcase, LucideIcon } from 'lucide-react';
+import { Home, Book, Briefcase, LucideIcon, Phone } from 'lucide-react';
 import ProfileImage from './ProfileImage';
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 
@@ -44,6 +44,7 @@ const ProfileDialog = () => {
     { name: 'Home', href: '#/', current: true, icon: Home },
     { name: 'Courses', href: '#CoursesGrid', current: false, icon: Book },
     { name: 'Services', href: '#ServiceGrid', current: false, icon: Briefcase },
+    { name: 'Contact', href: '#ContactUs', current: false, icon: Phone },
   ];
 
   function classNames(...classes: string[]) {
