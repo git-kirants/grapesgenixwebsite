@@ -19,7 +19,6 @@ export default function RootLayout({
         <link rel="icon" href="assets/favico.jpg" />
       </head>
       <body>
-        <TopStrip />
         <Navbar  />
         {children}
         <Footer />
