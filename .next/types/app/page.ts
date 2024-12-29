@@ -1,4 +1,4 @@
-// File: /home/kira/Projects/grapesgenixwebsite/app/page.tsx
+// File: /home/kira/grapesgenixwebsite/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
